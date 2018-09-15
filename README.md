@@ -18,6 +18,8 @@ Python 3.6 +
 1. Run Server
 
 ```
+setup.bat /setup.sh
 python app.py
+http://<server:port>/
 ```
 
