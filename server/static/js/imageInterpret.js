@@ -10,17 +10,16 @@ var getOCRDetect = function(ocrJSON){
     return baseOCRDetectStr;
 }
 
-//.labelAnnotations[0].description
 var getFaceDetect = function(faceJSON){
-    var baseFaceDetectStr = "The person in the picture seems to be ";
+    var baseFaceDetectStr = "I see a ";
     if (faceJSON.faceAnnotations && faceJSON.faceAnnotations[0].joyLikelihood == "VERY_LIKELY")
-      return baseFaceDetectStr + "happy.";
+      return baseFaceDetectStr + "happy face !!";
     else if (faceJSON.faceAnnotations && faceJSON.faceAnnotations[0].sorrowLikelihood == "VERY_LIKELY")
-      return baseFaceDetectStr + "sad.";
+      return baseFaceDetectStr + "sad face !!";
     else if (faceJSON.faceAnnotations && faceJSON.faceAnnotations[0].angerLikelihood == "VERY_LIKELY")
-      return baseFaceDetectStr + "angry.";
+      return baseFaceDetectStr + "angry face !!";
     else if (faceJSON.faceAnnotations && faceJSON.faceAnnotations[0].surpriseLikelihood == "VERY_LIKELY")
-      return baseFaceDetectStr + "surprised.";
+      return baseFaceDetectStr + "surprised face !!";
     else
       return "";
 }
@@ -28,7 +27,7 @@ var getFaceDetect = function(faceJSON){
 var getLandmarkDetect = function(landmarkJSON){
     var baseLandmarkDetectStr = "";
     if(landmarkJSON.landmarkAnnotations && landmarkJSON.landmarkAnnotations[0].description)
-      baseLandmarkDetectStr = "I see "+ landmarkJSON.landmarkAnnotations[0].description +"in the picture.";
+      baseLandmarkDetectStr = "I see "+ landmarkJSON.landmarkAnnotations[0].description +" in the picture.";
     
     return baseLandmarkDetectStr;
 }
@@ -36,14 +35,14 @@ var getLandmarkDetect = function(landmarkJSON){
 var getLogoDetect = function(logoJSON){
     var baseLogoDetectStr = "";
     if(logoJSON.logoAnnotations && logoJSON.logoAnnotations[0].description)
-      baseLogoDetectStr = "I see "+ logoJSON.logoAnnotations[0].description +"in the picture.";
+      baseLogoDetectStr = "I see "+ logoJSON.logoAnnotations[0].description +" in the picture.";
     return baseLogoDetectStr;
 }
 
 var getLabelDetect = function(labelJSON){
     var baseLabelDetectStr = "";
     if(labelJSON.labelAnnotations && labelJSON.labelAnnotations[0].description)
-      baseLabelDetectStr = "I see "+ labelJSON.labelAnnotations[0].description +"in the picture.";
+      baseLabelDetectStr = "I see "+ labelJSON.labelAnnotations[0].description +" in the picture.";
     return baseLabelDetectStr;
 }
 
@@ -61,13 +60,14 @@ var text2speech = function(mergeToVideo, filename, json) {
 
   // get a little smarter with google cloud vision api
   if(json){
-    getOCRDetect = getOCRDetect(json);
+    labelStr = getLabelDetect(json);
+    ocrStr = getOCRDetect(json);
     faceStr = getFaceDetect(json);
     landmarkStr = getLandmarkDetect(json);
     logoStr = getLogoDetect(json);
-    labelStr = getLabelDetect(json);
     
-    usefulText  = faceStr + landmarkStr + logoStr + labelStr;
+    
+    usefulText  = labelStr + ocrStr + faceStr + landmarkStr + logoStr ;
      //"I see a "+  text + ". ";
   }
 
