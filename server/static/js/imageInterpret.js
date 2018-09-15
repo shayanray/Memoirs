@@ -1,6 +1,17 @@
 memoirNS = {};
 memoirNS.filename = '';
 memoirNS.imgName = '';
+memoirNS.progressCount = 0;
+
+var openModal = function() {
+        document.getElementById('modal').style.display = 'block';
+        document.getElementById('fade').style.display = 'block';
+}
+
+var closeModal = function() {
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('fade').style.display = 'none';
+}
 
 var getOCRDetect = function(ocrJSON){
     var baseOCRDetectStr = "";
@@ -175,9 +186,29 @@ var mergeVideo = function() {
       //console.log(JSON.parse(request.responseText));
       loadVideo();
   };
-  document.getElementById('videoProgress').style="display: block";
-  document.getElementById('videoProgressBar').setAttribute('aria-valuenow','80');
-  document.getElementById('videoProgressBar').setAttribute("style","width:80%");
+  /*
+  request.onprogress = function (e) {
+    if (e.lengthComputable) {
+      console.log("e.total >> "+e.total);
+      console.log("e.loaded >> "+memoirNS.progressCount);
+        memoirNS.progressCount+=1;
+        document.getElementById('progressbar').max = e.total;
+        document.getElementById('progressbar').value = memoirNS.progressCount;
+    }
+}
+request.onloadstart = function (e) {
+  console.log("e.onloadstart >> ");
+    memoirNS.progressCount = 0;
+    document.getElementById('progressbar').value = 0;
+}
+request.onloadend = function (e) {
+    console.log("e.onloadend >> ");
+    document.getElementById('progressbar').value = e.loaded;
+}*/
+  //document.getElementById('progressbar').style="display: block";
+  openModal();
+  //document.getElementById('progressbar').value=50;
+  //document.getElementById('progressbar').setAttribute("style","width:80%");
   request.open("POST", postUrl, !0);
   request.send(JSON.stringify(data));
 };
@@ -192,6 +223,7 @@ var loadVideo = function(){
   source.src = "./output/video/" + memoirNS.filename; //elm.getAttribute('data-value');
 
   video.load(); //call this to just preload the audio without playing
-  document.getElementById('videoProgress').style="display: none";
+  //document.getElementById('progressbar').style="display:none";
+  closeModal();
   video.play(); //call this to play the song right away
 };

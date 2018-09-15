@@ -15,6 +15,7 @@
     <link rel="shortcut icon" type="image/png" href="../static/img/favicon.png"/>
     <!-- Bootstrap Core CSS -->
     <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/memoirs.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -92,11 +93,11 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <h2>Go ahead.. Add your story ? </h2>
+            <h2>Go ahead.. Weave in your story. </h2>
 
             <form id="storyForm">
               <fieldset>
-                <textarea id="storyText" rows=10 class="form-group form-group-md form-control" placeholder="Your Story" type="text" required autofocus value="" ></textarea>
+                <textarea id="storyText" rows=10 class="form-group form-group-md form-control" placeholder="Type your story here and let google do the rest.." type="text" required autofocus value="" ></textarea>
               </fieldset>
             </form>
           </div>
@@ -108,7 +109,12 @@
 
 
     <!-- Audio/Video generate style="background-color: #74a9e1;" -->
+    
     <section class="masthead d-flex bg-light text-dark" id="visuals" >
+      <div id="fade"></div>
+        <div id="modal">
+            <img id="loader" src="../static/img/loading.gif" />
+        </div>
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-10 mx-auto">
@@ -152,13 +158,15 @@
             <p></p>
             
           
-            <h2>More than words can say..</h2> -->
+            <h2>More than words can say..</h2> style="width: 25%" -->
             <fieldset>
               <button class="btn btn-primary btn-xl js-scroll-trigger" name="getVideoInfo" type="button" id="memories-submit" onclick="genVideo();" >Get Your Personalized Audio and Video</button>
               <p></p>
-              <div class="progress" id="videoProgress" style="display: none">
-          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" id="videoProgressBar" style="width: 25%" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+              <!-- <div class="progress" id="videoProgress" style="display:block;">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" id="videoProgressBar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div> -->
+
+            <progress class="progress" id="progressbar" value="0" style="display:none;"></progress>
               <p></p>
               <video id="videoTag" width="400" height="320" controls>
                   <source id="videoSource" src="" type="video/mp4">
