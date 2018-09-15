@@ -5,7 +5,7 @@ Note: ssml must be well-formed according to:
 """
 from google.cloud import texttospeech
 
-def generateAudioFile(filename, inputText):
+def generateAudioFile(filename, inputText, voiceChoice):
 
 	# Instantiates a client
 	client = texttospeech.TextToSpeechClient()
@@ -15,7 +15,16 @@ def generateAudioFile(filename, inputText):
 
 	# Build the voice request, select the language code ("en-US") and the ssml
 	# voice gender ("neutral")
-	voice = texttospeech.types.VoiceSelectionParams(
+	if voiceChoice.lower() == 'male':
+		voice = texttospeech.types.VoiceSelectionParams(
+	    language_code='en-US',
+	    ssml_gender=texttospeech.enums.SsmlVoiceGender.MALE)
+	elif voiceChoice.lower() == 'female':
+		voice = texttospeech.types.VoiceSelectionParams(
+	    language_code='en-US',
+	    ssml_gender=texttospeech.enums.SsmlVoiceGender.FEMALE)
+	else:
+		voice = texttospeech.types.VoiceSelectionParams(
 	    language_code='en-US',
 	    ssml_gender=texttospeech.enums.SsmlVoiceGender.NEUTRAL)
 

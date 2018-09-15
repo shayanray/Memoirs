@@ -36,7 +36,8 @@ def makeAudio():
     jsonReq = request.get_json(force=True)
     inputText = jsonReq['text']
     filename = jsonReq['filename']
-    tts.generateAudioFile('./output/'+filename, inputText)
+    voiceChoice = jsonReq['voiceChoice']       
+    tts.generateAudioFile('./output/'+filename, inputText, voiceChoice)
 
     res = {
         "filename": filename

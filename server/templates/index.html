@@ -38,7 +38,7 @@
         </li>
         
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#page-top">Upload Photo</a>
+          <a class="js-scroll-trigger" href="#photo">Upload Photo</a>
         </li>
 
          <li class="sidebar-nav-item">
@@ -46,38 +46,49 @@
         </li>
 
          <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#audio">Make Visuals</a>
+          <a class="js-scroll-trigger" href="#audio">The Product</a>
         </li>
       </ul>
     </nav>
 
-    <header class="masthead d-flex">
+    <header class="masthead d-flex" style="background-color: #74c7e1;">
       <div class="container">
         <div id="greetings">
-          <center><h2><em> WELCOME TO MEMOIRS </em></h2> </center>
-          <h4><em> Never lose a memory .... take your photos and create your stories ..</em></h4>
+          <center><h1><em> Make your MEMOIRS </em></h1>
+          <p/> 
+          <h4><em> Weave memories into your favorite photos ..</em></h4></center>
         </div>
-        <form id="memories">
-          <h4 style="padding-top: 5px">
-          <em>Upload your favorite photo(s) and enjoy !!</em>
-        </h4>
-      <input class="btn btn-xl btn-dark" type="file" id="fileinput" accept="image/*" onchange="previewImage(this,[512],4);" /> </h4>
+        <p/>
+        <h5 class="mb-5"><a href="#photo">Start uploading your favorite photo(s) .... </a></h5>
+      </div>
+    </header>
+
+    <!-- Upload your photo -->
+    <section class="masthead d-flex" id="photo" >
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h2>Upload your favorite photo(s) and enjoy !! </h2>
+
+            <form id="memories">
+      <input class="btn btn-xl btn-dark" type="file" id="fileinput" accept="image/*" onchange="previewImage(this,[512],4);" /> 
       <table>
         <tr>
           <td>
           <div class="imagePreview" style="padding-top: 5px"></div><br/>
         </td>
-        <td><h5><a href="#story">Next: Compose your Story .... </a> </h5></td>
+        <td><h5 ><a href="#story">Next: Compose your Story .... </a> </h5></td>
       </tr>
     </table>
       </form>
-      
+          </div>
+        </div>
       </div>
-    </header>
 
+    </section>
 
     <!-- Add your story -->
-    <section class="content-section bg-light" id="story">
+    <section class="masthead d-flex" id="story">
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-10 mx-auto">
@@ -101,30 +112,45 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <h2>Your Audio</h2>
+            <form id="visualForm">
+              <fieldset>
+                <h5>Enable Google Image Detection: </h5>
+                  <select id="useGoogleVision" name="useGoogleVision"> <option value="true" default>Yes </option> <option value="false">No </option>
+                </select>
+              </fieldset>
+
+              <fieldset>
+                <h5>Voice Choice: </h5>
+                  <select id="voiceChoice" name="voiceChoice"> <option value="female" default>Female </option> <option value="male">Male </option>
+                </select>
+              </fieldset>
+            </form>
+           
 
             <form id="audioForm">
+              <!-- <h2>Personalized Audio</h2>
              <fieldset>
               <button class="btn btn-xl btn-light mr-4" name="getImageInfo" type="button" id="memories-submit" onclick="genAudio();" >Get Your Personalized Audio</button>
             </fieldset>
             <p></p>
+            -->
+          
+            <h2>More than words can say..</h2>
+            <fieldset>
+              <button class="btn btn-xl btn-light mr-4" name="getVideoInfo" type="button" id="memories-submit" onclick="genVideo();" >Get Your Personalized Audio and Video</button>
+              <p></p>
+              <p></p>
+              <video id="videoTag" width="400" height="320" controls>
+                  <source id="videoSource" src="" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+           
+            </fieldset>
             <fieldset>
               <audio id="audioTag" controls>
                   <source id="audioSource" src="" type="audio/mpeg">
               Your browser does not support the audio element. Please use a HTML5 compliant browser.
               </audio>
-            </fieldset>
-
-            <h2>Your Video</h2>
-            <fieldset>
-              <button class="btn btn-xl btn-light mr-4" name="getVideoInfo" type="button" id="memories-submit" onclick="genVideo();" >Get Your Personalized Video</button>
-              <p></p>
-              <p></p>
-              <video id="videoTag" width="320" height="240" controls>
-                  <source id="videoSource" src="" type="video/mp4">
-                  Your browser does not support the video tag.
-              </video>
-              
             </fieldset>
             </form>
           </div>
