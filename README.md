@@ -9,14 +9,22 @@ Create your personalized Video from your favourite Photo and a little help from 
 Upload your photo, let google vision api add its own observations. Weave your story into the image with the help of Memoirs platform and create your personalized video( and audio).
 Download and share them with your loved ones and let them live your story.
 
+### Personal:
 It can add a personal touch to your favorite photos and can be shared on whatsapp, facebook (and other social media). It can also be used to customize e-cards and personalize greetings!
 
+### Social:
 More-over for people who are differently able (and vision impaired). It is a great way to tell them the story behind your favorite photos.
 
-Parents can make quick bedtime stories for their kids and play it on their favorite device!
+### Educational:
+It can be used for educational purposes too. Example: There are some critical diagrams/images that need a lot of detailed explaination and are worth saving up with additional notes for later reference.
+Parents can make quick bedtime stories/educational audio-visual for their kids and play it on their favorite device!
+
+### Humour:
+Obviously a funny story is always game with this creation. Pictures can convey so many emotions, humour is definitely the most wanted one. And with the capability to now weave in a funny story, this just became a useful utility for the jovial!
+
 
 ```
-Technically, this platform is able to detect:
+This platform is able to detect:
 
 Faces
 
