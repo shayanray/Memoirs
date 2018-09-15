@@ -16,11 +16,15 @@ More-over for people who are differently able (and vision impaired). It is a gre
 Parents can make quick bedtime stories for their kids and play it on their favorite device!
 
 Technically, this platform is able to detect:
-> Faces
-> Landmarks
-> Logos
-> Labels
-> OCR (Optical Character Recognition)
+Faces
+
+Landmarks
+
+Logos
+
+Labels
+
+OCR (Optical Character Recognition)
 
 It then converts the most confident findings to text and then to speech. It merges the image, google findings, story keyed in by the user all into one homemade video. The user can choose to opt out of google's findings and just make it about the personal story. Male or Female generated voice types are available.
 
