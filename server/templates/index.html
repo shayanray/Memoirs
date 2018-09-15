@@ -12,7 +12,7 @@
     <script src="../static/js/imageInterpret.js"></script>
     <script src="../static/js/html5.image.preview.js"></script>
     
-    <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="../static/img/favicon.png"/>
     <!-- Bootstrap Core CSS -->
     <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -42,49 +42,59 @@
         </li>
 
          <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#story">Add your story</a>
+          <a class="js-scroll-trigger" href="#story">Add Story</a>
         </li>
 
          <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#audio">Now get your audio</a>
+          <a class="js-scroll-trigger" href="#audio">Make Visuals</a>
         </li>
       </ul>
     </nav>
 
-    <!-- Header -->
     <header class="masthead d-flex">
       <div class="container">
-        <div id="greetings"></div>
+        <div id="greetings">
+          <center><h2><em> WELCOME TO MEMOIRS </em></h2> </center>
+          <h4><em> Never lose a memory .... take your photos and create your stories ..</em></h4>
+        </div>
         <form id="memories">
-          <h3 class="mb-5">
-            
+          <h4 style="padding-top: 5px">
           <em>Upload your favorite photo(s) and enjoy !!</em>
-        </h3>
-      <input class="btn btn-xl btn-dark" type="file" id="fileinput" accept="image/*" onchange="previewImage(this,[512],4);" />
-      <br/>
-      <div class="imagePreview" style="padding-top: 25px"></div><br/>
-    
-  </form>
-  <br/><br/>
+        </h4>
+      <input class="btn btn-xl btn-dark" type="file" id="fileinput" accept="image/*" onchange="previewImage(this,[512],4);" /> </h4>
+      <table>
+        <tr>
+          <td>
+          <div class="imagePreview" style="padding-top: 5px"></div><br/>
+        </td>
+        <td><h5><a href="#story">Next: Compose your Story .... </a> </h5></td>
+      </tr>
+    </table>
+      </form>
+      
       </div>
     </header>
+
 
     <!-- Add your story -->
     <section class="content-section bg-light" id="story">
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <h2>Add your story</h2>
+            <h2>Do you want to add your story ? </h2>
 
             <form id="storyForm">
               <fieldset>
-                <textarea id="storyText" class="form-group form-group-md form-control" placeholder="Your Story" type="text" required autofocus value="" ></textarea>
+                <textarea id="storyText" rows=10 class="form-group form-group-md form-control" placeholder="Your Story" type="text" required autofocus value="" ></textarea>
               </fieldset>
             </form>
           </div>
         </div>
+        <h5 class="mb-5"><a href="#audio">Next: Generate Visuals .... </a></h5>
       </div>
+
     </section>
+
 
     <!-- Audio/Video generate -->
     <section class="content-section text-white text-center" id="audio" style="background-color: #74a9e1;">
@@ -95,19 +105,33 @@
 
             <form id="audioForm">
              <fieldset>
-              <button class="btn btn-xl btn-light mr-4" name="getImageInfo" type="button" id="memories-submit" onclick="readImg();" >Get Your Personalized Audio</button>
+              <button class="btn btn-xl btn-light mr-4" name="getImageInfo" type="button" id="memories-submit" onclick="genAudio();" >Get Your Personalized Audio</button>
             </fieldset>
+            <p></p>
             <fieldset>
               <audio id="audioTag" controls>
                   <source id="audioSource" src="" type="audio/mpeg">
               Your browser does not support the audio element. Please use a HTML5 compliant browser.
               </audio>
             </fieldset>
+
+            <h2>Your Video</h2>
+            <fieldset>
+              <button class="btn btn-xl btn-light mr-4" name="getVideoInfo" type="button" id="memories-submit" onclick="genVideo();" >Get Your Personalized Video</button>
+              <p></p>
+              <p></p>
+              <video id="videoTag" width="320" height="240" controls>
+                  <source id="videoSource" src="" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+              
+            </fieldset>
             </form>
           </div>
         </div>
       </div>
     </section>
+
     
     <section class="content-section bg-primary text-white text-center" id="fitness" >
       <div class="container">

@@ -12,7 +12,10 @@ from configure import app
 import sys
 sys.path.insert(0, './tts')
 import tts
-#model = predictionEngine.train_model()
+
+
+sys.path.insert(0, './genVideo2')
+import genVideo2
 
 # Log
 logger = logging.getLogger(__name__)
@@ -40,9 +43,23 @@ def makeAudio():
     }
     return jsonify(res)
 
+@app.route('/makeVideo', methods=['POST'])
+def makeVideo():
+    jsonReq = request.get_json(force=True)
+    imgFile = jsonReq['imgFile']
+    audioFile = jsonReq['audioFile']
+    videoFile = jsonReq['videoFile']
 
-@app.route("/output/mpeg/<filename>")
-def streamMpeg(filename):
+    genVideo2.generateVideoFile(imgFile, audioFile, videoFile)
+
+    res = {
+        "filename": videoFile
+    }
+    return jsonify(res)
+
+
+@app.route("/output/audio/<filename>")
+def streamAudio(filename):
     def generate():
         with open("./output/" + filename + ".mp3", "rb") as fmpeg:
             data = fmpeg.read(1024)
@@ -50,6 +67,17 @@ def streamMpeg(filename):
                 yield data
                 data = fmpeg.read(1024)
     return Response(generate(), mimetype="audio/mpeg3")
+
+
+@app.route("/output/video/<filename>")
+def streamVideo(filename):
+    def generate():
+        with open("./output/" + filename + ".mp4", "rb") as fmpeg:
+            data = fmpeg.read(1024)
+            while data:
+                yield data
+                data = fmpeg.read(1024)
+    return Response(generate(), mimetype="video/mp4")
 
 
 if __name__ == "__main__":
