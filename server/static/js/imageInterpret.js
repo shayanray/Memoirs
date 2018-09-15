@@ -175,6 +175,9 @@ var mergeVideo = function() {
       //console.log(JSON.parse(request.responseText));
       loadVideo();
   };
+  document.getElementById('videoProgress').style="display: block";
+  document.getElementById('videoProgressBar').setAttribute('aria-valuenow','80');
+  document.getElementById('videoProgressBar').setAttribute("style","width:80%");
   request.open("POST", postUrl, !0);
   request.send(JSON.stringify(data));
 };
@@ -189,5 +192,6 @@ var loadVideo = function(){
   source.src = "./output/video/" + memoirNS.filename; //elm.getAttribute('data-value');
 
   video.load(); //call this to just preload the audio without playing
+  document.getElementById('videoProgress').style="display: none";
   video.play(); //call this to play the song right away
 };

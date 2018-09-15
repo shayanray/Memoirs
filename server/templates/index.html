@@ -38,46 +38,46 @@
         </li>
         
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#photo">Upload Photo</a>
+          <a class="js-scroll-trigger" href="#photo">Your Photo</a>
         </li>
 
          <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#story">Add Story</a>
+          <a class="js-scroll-trigger" href="#story">Your Story</a>
         </li>
 
          <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#audio">The Product</a>
+          <a class="js-scroll-trigger" href="#visuals">Your Audio and Video</a>
         </li>
       </ul>
     </nav>
 
-    <header class="masthead d-flex" style="background-color: #74c7e1;">
-      <div class="container">
-        <div id="greetings">
-          <center><h1><em> Make your MEMOIRS </em></h1>
-          <p/> 
-          <h4><em> Weave memories into your favorite photos ..</em></h4></center>
-        </div>
-        <p/>
-        <h5 class="mb-5"><a href="#photo">Start uploading your favorite photo(s) .... </a></h5>
+<header class="masthead d-flex bg-light text-dark">
+      <div class="container text-center my-auto ">
+        <h1 class="mb-1">Make your MEMOIRS</h1>
+        <h3 class="mb-5">
+          <em>Weave memories into your favorite photos ..</em>
+        </h3>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#photo">Let's start</a>
       </div>
+      <div class="overlay"></div>
     </header>
 
     <!-- Upload your photo -->
-    <section class="masthead d-flex" id="photo" >
+    <section class="masthead d-flex bg-light text-dark" id="photo" >
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <h2>Upload your favorite photo(s) and enjoy !! </h2>
+            <h2>Upload your favorite photo !! </h2>
 
             <form id="memories">
       <input class="btn btn-xl btn-dark" type="file" id="fileinput" accept="image/*" onchange="previewImage(this,[512],4);" /> 
-      <table>
+      <table class="table">
         <tr>
           <td>
-          <div class="imagePreview" style="padding-top: 5px"></div><br/>
+          <div class="imagePreview" style="padding-top: 5px"></div>&nbsp;
         </td>
-        <td><h5 ><a href="#story">Next: Compose your Story .... </a> </h5></td>
+        <p/><p/>
+        <td><a class="btn btn-primary btn-xl js-scroll-trigger" href="#story">Next: Compose your Story .... </a></td>
       </tr>
     </table>
       </form>
@@ -88,11 +88,11 @@
     </section>
 
     <!-- Add your story -->
-    <section class="masthead d-flex" id="story">
+    <section class="masthead d-flex bg-light text-dark" id="story">
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <h2>Do you want to add your story ? </h2>
+            <h2>Go ahead.. Add your story ? </h2>
 
             <form id="storyForm">
               <fieldset>
@@ -101,44 +101,64 @@
             </form>
           </div>
         </div>
-        <h5 class="mb-5"><a href="#audio">Next: Generate Visuals .... </a></h5>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#visuals">Next:  Generate Visuals .... </a> 
       </div>
 
     </section>
 
 
-    <!-- Audio/Video generate -->
-    <section class="content-section text-white text-center" id="audio" style="background-color: #74a9e1;">
+    <!-- Audio/Video generate style="background-color: #74a9e1;" -->
+    <section class="masthead d-flex bg-light text-dark" id="visuals" >
       <div class="container text-center">
         <div class="row">
           <div class="col-lg-10 mx-auto">
+            <center>
             <form id="visualForm">
-              <fieldset>
+              <table class="table borderless" >
+                <tr>
+                <td>
+                  <fieldset>
                 <h5>Enable Google Image Detection: </h5>
-                  <select id="useGoogleVision" name="useGoogleVision"> <option value="true" default>Yes </option> <option value="false">No </option>
+                </td>
+                <td>
+                  <select class="form-control" id="useGoogleVision" name="useGoogleVision"> <option value="true" default>Yes </option> <option value="false">No </option>
                 </select>
-              </fieldset>
-
-              <fieldset>
+                </fieldset>
+                </td>
+                </tr>
+                <tr>
+            
+              
+                <td>
+                  <fieldset>
                 <h5>Voice Choice: </h5>
-                  <select id="voiceChoice" name="voiceChoice"> <option value="female" default>Female </option> <option value="male">Male </option>
+                </td>
+                <td>
+                  <select class="form-control" id="voiceChoice" name="voiceChoice"> <option value="female" default>Female </option> <option value="male">Male </option>
                 </select>
-              </fieldset>
-            </form>
-           
+                </fieldset>
+              </td>
+              </tr>
+          </table>
+        </form>
+        </center>
 
+        
             <form id="audioForm">
               <!-- <h2>Personalized Audio</h2>
              <fieldset>
               <button class="btn btn-xl btn-light mr-4" name="getImageInfo" type="button" id="memories-submit" onclick="genAudio();" >Get Your Personalized Audio</button>
             </fieldset>
             <p></p>
-            -->
+            
           
-            <h2>More than words can say..</h2>
+            <h2>More than words can say..</h2> -->
             <fieldset>
-              <button class="btn btn-xl btn-light mr-4" name="getVideoInfo" type="button" id="memories-submit" onclick="genVideo();" >Get Your Personalized Audio and Video</button>
+              <button class="btn btn-primary btn-xl js-scroll-trigger" name="getVideoInfo" type="button" id="memories-submit" onclick="genVideo();" >Get Your Personalized Audio and Video</button>
               <p></p>
+              <div class="progress" id="videoProgress" style="display: none">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" id="videoProgressBar" style="width: 25%" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
               <p></p>
               <video id="videoTag" width="400" height="320" controls>
                   <source id="videoSource" src="" type="video/mp4">
@@ -159,16 +179,6 @@
     </section>
 
     
-    <section class="content-section bg-primary text-white text-center" id="fitness" >
-      <div class="container">
-      </div>
-    </section>
-
-    <footer class="footer text-center">
-      <div class="container">
-      </div>
-    </footer>
-
     <!-- Scroll to Top Button-->
     <a id="to-top" class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
       <i class="fa fa-angle-up"></i>
