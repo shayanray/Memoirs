@@ -16,7 +16,7 @@ var closeModal = function() {
 var getOCRDetect = function(ocrJSON){
     var baseOCRDetectStr = "";
     if(ocrJSON.textAnnotations && ocrJSON.textAnnotations[0].description)
-      baseOCRDetectStr = "I see "+ ocrJSON.textAnnotations[0].description +"in the picture.";
+      baseOCRDetectStr = "I see "+ ocrJSON.textAnnotations[0].description +".";
     
     return baseOCRDetectStr;
 }
@@ -38,7 +38,7 @@ var getFaceDetect = function(faceJSON){
 var getLandmarkDetect = function(landmarkJSON){
     var baseLandmarkDetectStr = "";
     if(landmarkJSON.landmarkAnnotations && landmarkJSON.landmarkAnnotations[0].description)
-      baseLandmarkDetectStr = "I see "+ landmarkJSON.landmarkAnnotations[0].description +" in the picture.";
+      baseLandmarkDetectStr = "I see "+ landmarkJSON.landmarkAnnotations[0].description +".";
     
     return baseLandmarkDetectStr;
 }
@@ -46,14 +46,14 @@ var getLandmarkDetect = function(landmarkJSON){
 var getLogoDetect = function(logoJSON){
     var baseLogoDetectStr = "";
     if(logoJSON.logoAnnotations && logoJSON.logoAnnotations[0].description)
-      baseLogoDetectStr = "I see "+ logoJSON.logoAnnotations[0].description +" in the picture.";
+      baseLogoDetectStr = "I see "+ logoJSON.logoAnnotations[0].description +".";
     return baseLogoDetectStr;
 }
 
 var getLabelDetect = function(labelJSON){
     var baseLabelDetectStr = "";
     if(labelJSON.labelAnnotations && labelJSON.labelAnnotations[0].description)
-      baseLabelDetectStr = "I see "+ labelJSON.labelAnnotations[0].description +" in the picture.";
+      baseLabelDetectStr = "I see "+ labelJSON.labelAnnotations[0].description +".";
     return baseLabelDetectStr;
 }
 
@@ -186,29 +186,7 @@ var mergeVideo = function() {
       //console.log(JSON.parse(request.responseText));
       loadVideo();
   };
-  /*
-  request.onprogress = function (e) {
-    if (e.lengthComputable) {
-      console.log("e.total >> "+e.total);
-      console.log("e.loaded >> "+memoirNS.progressCount);
-        memoirNS.progressCount+=1;
-        document.getElementById('progressbar').max = e.total;
-        document.getElementById('progressbar').value = memoirNS.progressCount;
-    }
-}
-request.onloadstart = function (e) {
-  console.log("e.onloadstart >> ");
-    memoirNS.progressCount = 0;
-    document.getElementById('progressbar').value = 0;
-}
-request.onloadend = function (e) {
-    console.log("e.onloadend >> ");
-    document.getElementById('progressbar').value = e.loaded;
-}*/
-  //document.getElementById('progressbar').style="display: block";
   openModal();
-  //document.getElementById('progressbar').value=50;
-  //document.getElementById('progressbar').setAttribute("style","width:80%");
   request.open("POST", postUrl, !0);
   request.send(JSON.stringify(data));
 };
@@ -223,7 +201,6 @@ var loadVideo = function(){
   source.src = "./output/video/" + memoirNS.filename; //elm.getAttribute('data-value');
 
   video.load(); //call this to just preload the audio without playing
-  //document.getElementById('progressbar').style="display:none";
   closeModal();
   video.play(); //call this to play the song right away
 };

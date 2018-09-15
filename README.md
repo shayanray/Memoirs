@@ -4,14 +4,25 @@
 A Picture is worth a thousand words but often times its these words that make a picture perfect!
 
 ## What it does
-You can upload your photo, let google vision api add its own observations. Also add your story and customize your homemade video and audio only.
+Create your personalized Video from your favourite Photo and a little help from Google!
+
+Upload your photo, let google vision api add its own observations. Weave your story into the image with the help of Memoirs platform and create your personalized video( and audio).
 Download and share them with your loved ones and let them live your story.
 
 It can add a personal touch to your favorite photos and can be shared on whatsapp, facebook (and other social media). It can also be used to customize e-cards and personalize greetings!
 
 More-over for people who are differently able (and vision impaired). It is a great way to tell them the story behind your favorite photos.
 
-Parents can make short bedtime stories for their kids too.. 
+Parents can make quick bedtime stories for their kids and play it on their favorite device!
+
+Technically, this platform is able to detect:
+> Faces
+> Landmarks
+> Logos
+> Labels
+> OCR (Optical Character Recognition)
+
+It then converts the most confident findings to text and then to speech. It merges the image, google findings, story keyed in by the user all into one homemade video. The user can choose to opt out of google's findings and just make it about the personal story. Male or Female generated voice types are available.
 
 
 ## How I built it
