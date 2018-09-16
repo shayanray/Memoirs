@@ -4,7 +4,7 @@
 A Picture is worth a thousand words but often times its these words that make a picture perfect!
 
 ## What it does
-Create your personalized Video from your favourite Photo and a little help from Google!
+Create your personalized Video from your favorite photos. Use it for personalized greetings, jokes, educational notes or to create memories for the vison impaired!
 
 Upload your photo, let google vision api add its own observations. Weave your story into the image with the help of Memoirs platform and create your personalized video( and audio).
 Download and share them with your loved ones and let them live your story.
